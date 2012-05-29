@@ -21,7 +21,7 @@ ThinkUp requires a MySQL db. Add mysql support to your application:
 
 Make a note of the username, password, and host name you are given. You'll need these to complete the configuration of ThinkUp once you deploy.
 
-Add this upstream ThinkUp quickstart repo
+Add this upstream ThinkUp quickstart repo:
 
 	cd thinkup/php
 	rm -rf *
@@ -32,6 +32,8 @@ Then push the repo upstream to OpenShift
 
 	git push
 
-That's it, you can now checkout your application at:
+Voila. You are now up and running. Log into the you app:
 
 	http://thinkup-$your_login.rhcloud.com
+
+Run through the ThinkUp install/configuration to add your social networks to ThinkUp.

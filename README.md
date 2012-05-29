@@ -36,4 +36,4 @@ Voila. You are now up and running. Log into the you app:
 
 	http://thinkup-$your_login.rhcloud.com
 
-Run through the ThinkUp install/configuration.
+Run through the ThinkUp install/configuration to add your social networks to ThinkUp.
