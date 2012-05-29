@@ -1,7 +1,17 @@
 <?php
+/*
+ Plugin Name: Twitter
+ Plugin URI: http://github.com/ginatrapani/thinkup/tree/master/webapp/plugins/twitter/
+ Description: Capture and display tweets.
+ Icon: assets/img/twitter_icon.png
+ Class: TwitterPlugin
+ Version: 0.01
+ Author: Gina Trapani
+ */
+
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/plugins/twitter/controller/twitter.php
  *
  * Copyright (c) 2009-2012 Gina Trapani
  *
@@ -19,13 +29,20 @@
  *
  * You should have received a copy of the GNU General Public License along with ThinkUp.  If not, see
  * <http://www.gnu.org/licenses/>.
- *
- *
+ */
+/**
  * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
  * @license http://www.gnu.org/licenses/gpl.html
  * @copyright 2009-2012 Gina Trapani
  */
-require_once 'init.php';
+$config = Config::getInstance();
+//For testing, check if mock class has already been loaded
+if (!class_exists('TwitterOAuth')) {
+    Loader::addSpecialClass('TwitterOAuth', 'plugins/twitter/extlib/twitteroauth/twitteroauth.php');
+}
 
-$controller = new DashboardController();
-echo $controller->go();
+$webapp = Webapp::getInstance();
+$webapp->registerPlugin('twitter', 'TwitterPlugin');
+
+$crawler = Crawler::getInstance();
+$crawler->registerCrawlerPlugin('TwitterPlugin');

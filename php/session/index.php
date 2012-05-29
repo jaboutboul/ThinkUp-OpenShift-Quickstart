@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/session/index.php
  *
  * Copyright (c) 2009-2012 Gina Trapani
  *
@@ -25,7 +25,4 @@
  * @license http://www.gnu.org/licenses/gpl.html
  * @copyright 2009-2012 Gina Trapani
  */
-require_once 'init.php';
-
-$controller = new DashboardController();
-echo $controller->go();
+require_once 'login.php';

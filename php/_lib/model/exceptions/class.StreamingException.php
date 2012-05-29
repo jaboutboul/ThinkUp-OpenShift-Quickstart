@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/_lib/model/exceptions/class.StreamingException.php
  *
- * Copyright (c) 2009-2012 Gina Trapani
+ * Copyright (c) 2011-2012 Amy Unruh
  *
  * LICENSE:
  *
@@ -20,12 +20,8 @@
  * You should have received a copy of the GNU General Public License along with ThinkUp.  If not, see
  * <http://www.gnu.org/licenses/>.
  *
- *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * @author Amy Unruh
  * @license http://www.gnu.org/licenses/gpl.html
- * @copyright 2009-2012 Gina Trapani
+ * @copyright 2011-2012  Amy Unruh
  */
-require_once 'init.php';
-
-$controller = new DashboardController();
-echo $controller->go();
+class StreamingException extends Exception {}

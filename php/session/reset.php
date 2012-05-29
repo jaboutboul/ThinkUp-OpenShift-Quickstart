@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/session/reset.php
  *
- * Copyright (c) 2009-2012 Gina Trapani
+ * Copyright (c) 2009-2012 Gina Trapani, Michael Louis Thaler
  *
  * LICENSE:
  *
@@ -21,11 +21,12 @@
  * <http://www.gnu.org/licenses/>.
  *
  *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * @author Michael Louis Thaler <michael[dot]louis[dot]thaler[at]gmail[dot]com>
  * @license http://www.gnu.org/licenses/gpl.html
- * @copyright 2009-2012 Gina Trapani
+ * @copyright 2009-2012 Gina Trapani, Michael Louis Thaler
  */
+chdir('..');
 require_once 'init.php';
 
-$controller = new DashboardController();
+$controller = new PasswordResetController();
 echo $controller->go();

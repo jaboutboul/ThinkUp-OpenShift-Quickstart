@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/_lib/model/interface.DashboardPlugin.php
  *
  * Copyright (c) 2009-2012 Gina Trapani
  *
@@ -21,11 +21,18 @@
  * <http://www.gnu.org/licenses/>.
  *
  *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * Dashboard plugin interface
+ *
  * @license http://www.gnu.org/licenses/gpl.html
  * @copyright 2009-2012 Gina Trapani
+ * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ *
  */
-require_once 'init.php';
-
-$controller = new DashboardController();
-echo $controller->go();
+interface DashboardPlugin extends ThinkUpPlugin {
+    /**
+     * Get Dashboard menu
+     * @param $instance Instance
+     * @return array of MenuItem objects (Tweets, Friends, Followers, etc)
+     */
+    public function getDashboardMenuItems($instance);
+}

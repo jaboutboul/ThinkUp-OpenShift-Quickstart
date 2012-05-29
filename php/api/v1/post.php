@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/api/v1/post.php
  *
- * Copyright (c) 2009-2012 Gina Trapani
+ * Copyright (c) 2009-2012 Gina Trapani, Sam Rose
  *
  * LICENSE:
  *
@@ -21,11 +21,12 @@
  * <http://www.gnu.org/licenses/>.
  *
  *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * @author Sam Rose <samwho@lbak.co.uk>
  * @license http://www.gnu.org/licenses/gpl.html
- * @copyright 2009-2012 Gina Trapani
+ * @copyright 2009-2010 Gina Trapani, Sam Rose
  */
+chdir("../../");
 require_once 'init.php';
 
-$controller = new DashboardController();
+$controller = new PostAPIController();
 echo $controller->go();

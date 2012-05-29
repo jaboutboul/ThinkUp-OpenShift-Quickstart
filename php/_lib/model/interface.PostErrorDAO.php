@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/_lib/model/interface.PostErrorDAO.php
  *
  * Copyright (c) 2009-2012 Gina Trapani
  *
@@ -21,11 +21,26 @@
  * <http://www.gnu.org/licenses/>.
  *
  *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * PostError Data Access Object
+ *
+ * Inserts post errors into the tu_post_error table.
+ * Example post error text includes:
+ * "No status found with that ID."
+ * "Sorry, you are not authorized to see this status."
+ * "This account is currently suspended."
+ *
  * @license http://www.gnu.org/licenses/gpl.html
  * @copyright 2009-2012 Gina Trapani
+ * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ *
  */
-require_once 'init.php';
-
-$controller = new DashboardController();
-echo $controller->go();
+interface PostErrorDAO {
+    /**
+     * Insert a post error
+     * @param int $post_id ID of the post that got the error
+     * @param int $error_code The HTTP error code (such as 404 not found or 403 not authorized)
+     * @param string $error_text Description of the error
+     * @param int $issued_to ID of the authorized user who got the error.
+     */
+    public function insertError($post_id, $network, $error_code, $error_text, $issued_to);
+}

@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/_lib/controller/class.ThinkUpAdminController.php
  *
  * Copyright (c) 2009-2012 Gina Trapani
  *
@@ -21,11 +21,25 @@
  * <http://www.gnu.org/licenses/>.
  *
  *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * ThinkUp Admin Controller
+ *
+ * Parent controller for all logged-in admin user-only actions.
+ *
  * @license http://www.gnu.org/licenses/gpl.html
  * @copyright 2009-2012 Gina Trapani
+ * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ *
  */
-require_once 'init.php';
+abstract class ThinkUpAdminController extends ThinkUpAuthController {
+    public function __construct($session_started=false) {
+        parent::__construct($session_started);
+    }
 
-$controller = new DashboardController();
-echo $controller->go();
+    public function authControl() {
+        if ($this->isAdmin()) {
+            return $this->adminControl();
+        } else {
+            throw new Exception("You must be a ThinkUp admin to do this");
+        }
+    }
+}

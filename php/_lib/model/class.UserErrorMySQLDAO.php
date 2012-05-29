@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/_lib/model/class.UserErrorMySQLDAO.php
  *
  * Copyright (c) 2009-2012 Gina Trapani
  *
@@ -21,11 +21,28 @@
  * <http://www.gnu.org/licenses/>.
  *
  *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * User Error MySQL DAO Implementation
+ *
  * @license http://www.gnu.org/licenses/gpl.html
  * @copyright 2009-2012 Gina Trapani
+ * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ *
  */
-require_once 'init.php';
 
-$controller = new DashboardController();
-echo $controller->go();
+class UserErrorMySQLDAO extends PDODAO implements UserErrorDAO {
+
+    public function insertError($id, $error_code, $error_text, $issued_to, $network) {
+        $q = "INSERT INTO #prefix#user_errors (user_id, error_code, error_text, error_issued_to_user_id, network) ";
+        $q .= "VALUES (:id, :error_code, :error_text, :issued_to, :network) ";
+        $vars = array(
+            ':id'=>$id, 
+            ':error_code'=>$error_code,
+            ':error_text'=>$error_text,
+            ':issued_to'=>(string)$issued_to,
+            ':network'=>$network
+        );
+        $ps = $this->execute($q, $vars);
+
+        return $this->getInsertCount($ps);
+    }
+}

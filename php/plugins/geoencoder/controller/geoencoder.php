@@ -1,9 +1,19 @@
 <?php
+/*
+ Plugin Name: GeoEncoder
+ Plugin URI: http://github.com/ginatrapani/thinkup/tree/master/webapp/plugins/geoencoder/
+ Description: Plot conversations on a Google Map.
+ Class: GeoEncoderPlugin
+ Icon: assets/img/geoencoder_icon.png
+ Version: 0.01
+ Author: Ekansh Preet Singh, Mark Wilkie
+ */
+
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/plugins/geoencoder/controller/geoencoder.php
  *
- * Copyright (c) 2009-2012 Gina Trapani
+ * Copyright (c) 2009-2012 Ekansh Preet Singh, Mark Wilkie
  *
  * LICENSE:
  *
@@ -21,11 +31,13 @@
  * <http://www.gnu.org/licenses/>.
  *
  *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * @author Ekansh Preet Singh <ekanshpreet[at]gmail[dot]com>
  * @license http://www.gnu.org/licenses/gpl.html
- * @copyright 2009-2012 Gina Trapani
+ * @copyright 2009-2012 Ekansh Preet Singh, Mark Wilkie
  */
-require_once 'init.php';
 
-$controller = new DashboardController();
-echo $controller->go();
+$webapp = Webapp::getInstance();
+$webapp->registerPlugin('geoencoder', 'GeoEncoderPlugin');
+
+$crawler = Crawler::getInstance();
+$crawler->registerCrawlerPlugin('GeoEncoderPlugin');

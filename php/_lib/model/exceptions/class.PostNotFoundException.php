@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/_lib/model/exceptions/class.PostNotFoundEception.php
  *
- * Copyright (c) 2009-2012 Gina Trapani
+ * Copyright (c) 2012 Gina Trapani
  *
  * LICENSE:
  *
@@ -20,12 +20,12 @@
  * You should have received a copy of the GNU General Public License along with ThinkUp.  If not, see
  * <http://www.gnu.org/licenses/>.
  *
- *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * @author Gina Trapani <ginatrapani at gmail.com>
  * @license http://www.gnu.org/licenses/gpl.html
- * @copyright 2009-2012 Gina Trapani
+ * @copyright 2012 Gina Trapani
  */
-require_once 'init.php';
-
-$controller = new DashboardController();
-echo $controller->go();
+class PostNotFoundException extends Exception {
+    public function __construct() {
+        parent::__construct('The requested post data is not available.');
+    }
+}

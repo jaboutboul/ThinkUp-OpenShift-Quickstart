@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/_lib/view/plugins/insert.dashboard_link.php
  *
  * Copyright (c) 2009-2012 Gina Trapani
  *
@@ -25,7 +25,23 @@
  * @license http://www.gnu.org/licenses/gpl.html
  * @copyright 2009-2012 Gina Trapani
  */
-require_once 'init.php';
-
-$controller = new DashboardController();
-echo $controller->go();
+/*
+ * Smarty plugin
+ * -------------------------------------------------------------
+ * File:     insert.dashboard_link.php
+ * Type:     insert
+ * Name:     dashboard_link
+ * Purpose:  Examine the instance network and username to return
+ *           the link that will return the user to the correct
+ *           dashboard.
+ * -------------------------------------------------------------
+ */
+function smarty_insert_dashboard_link($params, &$smarty) {
+    if (isset($smarty->_tpl_vars['selected_instance_username']) &&
+    isset($smarty->_tpl_vars['selected_instance_network'])) {
+        return $smarty->_tpl_vars['site_root_path'].'?u='.urlencode($smarty->_tpl_vars['selected_instance_username']).
+        '&n='.urlencode($smarty->_tpl_vars['selected_instance_network']);
+    } else {
+        return $smarty->_tpl_vars['site_root_path'];
+    }
+}

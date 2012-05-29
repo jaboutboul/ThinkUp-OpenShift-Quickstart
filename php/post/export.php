@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/post/export.php
  *
- * Copyright (c) 2009-2012 Gina Trapani
+ * Copyright (c) 2009-2012 Gina Trapani, Christoffer Viken, Mark Wilkie
  *
  * LICENSE:
  *
@@ -22,10 +22,13 @@
  *
  *
  * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * @author Christoffer Viken <christoffer[at]viken[dot]me>
+ * @author Mark Wilkie <mark[at]bitterpill[dot]org>
  * @license http://www.gnu.org/licenses/gpl.html
- * @copyright 2009-2012 Gina Trapani
+ * @copyright 2009-2012 Gina Trapani, Christoffer Viken, Mark Wilkie
  */
+chdir("..");
 require_once 'init.php';
 
-$controller = new DashboardController();
+$controller = new ExportController();
 echo $controller->go();

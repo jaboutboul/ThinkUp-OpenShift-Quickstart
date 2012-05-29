@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/_lib/model/class.Location.php
  *
- * Copyright (c) 2009-2012 Gina Trapani
+ * Copyright (c) 2009-2012 Ekansh Preet Singh, Mark Wilkie
  *
  * LICENSE:
  *
@@ -21,11 +21,36 @@
  * <http://www.gnu.org/licenses/>.
  *
  *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * Location Object
  * @license http://www.gnu.org/licenses/gpl.html
- * @copyright 2009-2012 Gina Trapani
+ * @copyright 2009-2012 Ekansh Preet Singh, Mark Wilkie
+ * @author Ekansh Preet Singh <ekanshpreet[at]gmail[dot]com>
+ * @author Mark Wilkie <mwilkie[at]gmail[dot]com>
  */
-require_once 'init.php';
 
-$controller = new DashboardController();
-echo $controller->go();
+class Location {
+    var $id;
+    /**
+     * @var str
+     */
+    var $short_name;
+    /**
+     * @var str
+     */
+    var $full_name;
+    /**
+     * @var str
+     */
+    var $latlng;
+
+    /**
+     * Constructor
+     * @param array $val Array of key/value pairs
+     */
+    public function __construct($val) {
+        $this->id = $val["id"];
+        $this->short_name = $val["short_name"];
+        $this->full_name = $val["full_name"];
+        $this->latlng = $val["latlng"];
+    }
+}

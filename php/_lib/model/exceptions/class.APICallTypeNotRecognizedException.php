@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/_lib/model/exceptions/class.APICallTypeNotRecognizedEception.php
  *
- * Copyright (c) 2009-2012 Gina Trapani
+ * Copyright (c) 2009-2012 Sam Rose
  *
  * LICENSE:
  *
@@ -21,11 +21,13 @@
  * <http://www.gnu.org/licenses/>.
  *
  *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ *
+ * @author Sam Rose <samwho@lbak.co.uk>
  * @license http://www.gnu.org/licenses/gpl.html
- * @copyright 2009-2012 Gina Trapani
+ * @copyright 2009-2012 Sam Rose
  */
-require_once 'init.php';
-
-$controller = new DashboardController();
-echo $controller->go();
+class APICallTypeNotRecognizedException extends Exception {
+    public function __construct($type) {
+        parent::__construct('Your API call type "' . $type . '" was not recognized.');
+    }
+}

@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/_lib/controller/class.LogoutController.php
  *
  * Copyright (c) 2009-2012 Gina Trapani
  *
@@ -21,11 +21,20 @@
  * <http://www.gnu.org/licenses/>.
  *
  *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * Logout Controller
+ *
+ * Log out of ThinkUp.
+ *
  * @license http://www.gnu.org/licenses/gpl.html
  * @copyright 2009-2012 Gina Trapani
+ * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ *
  */
-require_once 'init.php';
-
-$controller = new DashboardController();
-echo $controller->go();
+class LogoutController extends ThinkUpAuthController {
+    public function authControl() {
+        Session::logout();
+        $controller = new DashboardController(true);
+        $controller->addSuccessMessage("You have successfully logged out.");
+        return $controller->go();
+    }
+}

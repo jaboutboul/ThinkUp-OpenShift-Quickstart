@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/install/upgrade.php
  *
- * Copyright (c) 2009-2012 Gina Trapani
+ * Copyright (c) 2012 Mark Wilkie
  *
  * LICENSE:
  *
@@ -20,12 +20,12 @@
  * You should have received a copy of the GNU General Public License along with ThinkUp.  If not, see
  * <http://www.gnu.org/licenses/>.
  *
+ * This file provided for backwards-compatibility and testing.
  *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ *
  * @license http://www.gnu.org/licenses/gpl.html
- * @copyright 2009-2012 Gina Trapani
+ * @copyright 2012 Mark Wilkie
+ * @author Mark Wilkie <mwilkie[at]gmail[dot]com>
+ *
  */
-require_once 'init.php';
-
-$controller = new DashboardController();
-echo $controller->go();
+require_once('upgrade-database.php');

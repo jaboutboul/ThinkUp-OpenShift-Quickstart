@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/install/setmode.php
  *
- * Copyright (c) 2009-2012 Gina Trapani
+ * Copyright (c) 2011-2012 Gina Trapani
  *
  * LICENSE:
  *
@@ -23,9 +23,28 @@
  *
  * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
  * @license http://www.gnu.org/licenses/gpl.html
- * @copyright 2009-2012 Gina Trapani
+ * @copyright 2011-2012 Gina Trapani
  */
-require_once 'init.php';
+session_start();
+if (strtolower($_GET['m']) == "tests") {
+    putenv("MODE=TESTS");
+    $_SESSION["MODE"] = "TESTS";
+    echo "Set to tests mode";
+} elseif (strtolower($_GET['m']) == "prod") {
+    putenv("MODE=PROD");
+    $_SESSION["MODE"] = "PROD";
+    echo "Set to prod mode";
+} else {
+    echo "Currently in ";
+    if (isset($_SESSION["MODE"])) {
+        echo strtolower($_SESSION["MODE"]);
+    } else {
+        echo " prod ";
+    }
+    echo " mode";
+}
 
-$controller = new DashboardController();
-echo $controller->go();
+if (strtolower($_GET['rd'])) {
+    putenv("RD_MODE=1");
+    $_SESSION["RD_MODE"] = "1";
+}

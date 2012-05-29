@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/_lib/view/plugins/modifier.get_plugin_path.php
  *
  * Copyright (c) 2009-2012 Gina Trapani
  *
@@ -19,13 +19,29 @@
  *
  * You should have received a copy of the GNU General Public License along with ThinkUp.  If not, see
  * <http://www.gnu.org/licenses/>.
- *
- *
+ */
+/**
  * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
  * @license http://www.gnu.org/licenses/gpl.html
  * @copyright 2009-2012 Gina Trapani
  */
-require_once 'init.php';
-
-$controller = new DashboardController();
-echo $controller->go();
+/*
+ * Smarty plugin
+ * -------------------------------------------------------------
+ * File:     modifier.get_plugin_path.php
+ * Type:     modifier
+ * Name:     get_plugin_path
+ * Purpose:  For special source (like Facebook pages) return the
+ *           correct path to the ThinkUp plugin.
+ *           @TODO: Figure out a better way to handle this.
+ * -------------------------------------------------------------
+ */
+function smarty_modifier_get_plugin_path($network) {
+    if ($network == "facebook page") {
+        return "facebook";
+    } elseif ($network == "google+") {
+        return "googleplus";
+    } else {
+        return $network;
+    }
+}

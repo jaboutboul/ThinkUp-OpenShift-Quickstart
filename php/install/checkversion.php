@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/install/checkversion.php
  *
- * Copyright (c) 2009-2012 Gina Trapani
+ * Copyright (c) 2011-2012 Gina Trapani
  *
  * LICENSE:
  *
@@ -21,11 +21,11 @@
  * <http://www.gnu.org/licenses/>.
  *
  *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * @author Mark Wilkie <mwilkie[at]gmail[dot]com>
  * @license http://www.gnu.org/licenses/gpl.html
- * @copyright 2009-2012 Gina Trapani
+ * @copyright 2011-2012 Gina Trapani
  */
+chdir('..');
 require_once 'init.php';
-
-$controller = new DashboardController();
+$controller = new CheckVersionController();
 echo $controller->go();

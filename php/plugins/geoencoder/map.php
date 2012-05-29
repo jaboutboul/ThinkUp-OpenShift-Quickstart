@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/post/map.php
  *
  * Copyright (c) 2009-2012 Gina Trapani
  *
@@ -25,7 +25,10 @@
  * @license http://www.gnu.org/licenses/gpl.html
  * @copyright 2009-2012 Gina Trapani
  */
+chdir('..');
+chdir('..');
 require_once 'init.php';
+require_once 'plugins/geoencoder/controller/class.MapController.php';
 
-$controller = new DashboardController();
+$controller = new MapController();
 echo $controller->go();

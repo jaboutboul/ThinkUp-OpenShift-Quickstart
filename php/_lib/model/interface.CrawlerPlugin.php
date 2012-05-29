@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/_lib/model/interface.CrawlerPlugin.php
  *
  * Copyright (c) 2009-2012 Gina Trapani
  *
@@ -21,11 +21,17 @@
  * <http://www.gnu.org/licenses/>.
  *
  *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * Crawler plugin interface
+ *
  * @license http://www.gnu.org/licenses/gpl.html
  * @copyright 2009-2012 Gina Trapani
+ * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ *
  */
-require_once 'init.php';
+interface CrawlerPlugin extends ThinkUpPlugin {
+    /**
+     * Crawl
+     */
+    public function crawl();
+}
 
-$controller = new DashboardController();
-echo $controller->go();

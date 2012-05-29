@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/crawler/checkcrawler.php
  *
  * Copyright (c) 2009-2012 Gina Trapani
  *
@@ -25,7 +25,7 @@
  * @license http://www.gnu.org/licenses/gpl.html
  * @copyright 2009-2012 Gina Trapani
  */
-require_once 'init.php';
+require_once dirname(__FILE__).'/../init.php';
 
-$controller = new DashboardController();
+$controller = new CheckCrawlerController(true, $argc, $argv);
 echo $controller->go();

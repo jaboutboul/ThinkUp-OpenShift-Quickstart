@@ -1,7 +1,16 @@
 <?php
+/*
+ Plugin Name: Facebook
+ Plugin URI: http://github.com/ginatrapani/thinkup/tree/master/webapp/plugins/facebook/
+ Description: Capture and display Facebook posts.
+ Class: FacebookPlugin
+ Icon: assets/img/facebook_icon.png
+ Version: 0.01
+ Author: Gina Trapani
+ */
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/plugins/facebook/controller/facebook.php
  *
  * Copyright (c) 2009-2012 Gina Trapani
  *
@@ -20,12 +29,18 @@
  * You should have received a copy of the GNU General Public License along with ThinkUp.  If not, see
  * <http://www.gnu.org/licenses/>.
  *
- *
  * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
  * @license http://www.gnu.org/licenses/gpl.html
  * @copyright 2009-2012 Gina Trapani
  */
-require_once 'init.php';
+//For testing purposes, only include Facebook library if mock class hasn't already been loaded
+if (!class_exists('Facebook')) {
+    Loader::addSpecialClass('Facebook', 'plugins/facebook/extlib/facebook/facebook.php');
+}
 
-$controller = new DashboardController();
-echo $controller->go();
+$webapp = Webapp::getInstance();
+$webapp->registerPlugin('facebook', 'FacebookPlugin');
+$webapp->registerPlugin('facebook page', 'FacebookPlugin');
+
+$crawler = Crawler::getInstance();
+$crawler->registerCrawlerPlugin('FacebookPlugin');

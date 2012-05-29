@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/_lib/model/interface.ThinkUpPlugin.php
  *
  * Copyright (c) 2009-2012 Gina Trapani
  *
@@ -21,11 +21,25 @@
  * <http://www.gnu.org/licenses/>.
  *
  *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * ThinkUp Plugin interface
  * @license http://www.gnu.org/licenses/gpl.html
  * @copyright 2009-2012 Gina Trapani
+ * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ *
  */
-require_once 'init.php';
-
-$controller = new DashboardController();
-echo $controller->go();
+interface ThinkUpPlugin {
+    /**
+     * Render the configuration screen in the webapp
+     * @param Owner $owner
+     * @return str HTML markup of configuration panel
+     */
+    public function renderConfiguration($owner);
+    /**
+     * Activation callback, triggered when user deactivates plugin.
+     */
+    public function activate();
+    /**
+     * Deactivation callback, triggered when user deactivates plugin.
+     */
+    public function deactivate();
+}

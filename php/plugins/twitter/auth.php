@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/plugins/twitter/auth.php
  *
- * Copyright (c) 2009-2012 Gina Trapani
+ * Copyright (c) 2009-2012 Gina Trapani, Mark Wilkie, Christoffer Viken
  *
  * LICENSE:
  *
@@ -20,12 +20,16 @@
  * You should have received a copy of the GNU General Public License along with ThinkUp.  If not, see
  * <http://www.gnu.org/licenses/>.
  *
- *
  * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * @author Mark Wilkie <mark[at]bitterpill[dot]org>
+ * @author Christoffer Viken <christoffer[at]viken[dot]me>
  * @license http://www.gnu.org/licenses/gpl.html
- * @copyright 2009-2012 Gina Trapani
+ * @copyright 2009-2012 Gina Trapani, Mark Wilkie, Christoffer Viken
  */
+chdir("..");
+chdir("..");
 require_once 'init.php';
+require_once 'plugins/twitter/controller/class.TwitterAuthController.php';
 
-$controller = new DashboardController();
+$controller = new TwitterAuthController();
 echo $controller->go();

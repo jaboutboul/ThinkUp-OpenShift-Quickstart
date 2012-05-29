@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/account/toggle-public.php
  *
  * Copyright (c) 2009-2012 Gina Trapani
  *
@@ -25,7 +25,8 @@
  * @license http://www.gnu.org/licenses/gpl.html
  * @copyright 2009-2012 Gina Trapani
  */
+chdir("..");
 require_once 'init.php';
 
-$controller = new DashboardController();
+$controller = new TogglePublicInstanceController();
 echo $controller->go();

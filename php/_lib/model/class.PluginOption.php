@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/_lib/model/class.PluginOption.php
  *
- * Copyright (c) 2009-2012 Gina Trapani
+ * Copyright (c) 2009-2012 Mark Wilkie
  *
  * LICENSE:
  *
@@ -21,11 +21,34 @@
  * <http://www.gnu.org/licenses/>.
  *
  *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * Plugin Option
+ *
+ * A ThinkUp plugin option
+ *
  * @license http://www.gnu.org/licenses/gpl.html
- * @copyright 2009-2012 Gina Trapani
+ * @copyright 2009-2012 Mark Wilkie
+ * @author Mark Wilkie <mwilkie[at]gmail[dot]com>
+ *
  */
-require_once 'init.php';
+class PluginOption {
+    /*
+     * @var int id
+     */
+    var $id;
 
-$controller = new DashboardController();
-echo $controller->go();
+    /*
+     * @var int plugin id
+     */
+    var $plugin_id;
+
+    /*
+     * @var str plugin option name
+     */
+    var $option_name;
+
+    /*
+     * @var str plugin option value
+     */
+    var $option_value;
+
+}

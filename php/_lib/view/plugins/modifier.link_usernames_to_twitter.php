@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/_lib/view/plugins/modifier.link_usernames_to_twitter.php
  *
  * Copyright (c) 2009-2012 Gina Trapani
  *
@@ -19,13 +19,31 @@
  *
  * You should have received a copy of the GNU General Public License along with ThinkUp.  If not, see
  * <http://www.gnu.org/licenses/>.
+ */
+/**
+ * Smarty plugin
+ * @package Smarty
+ * @subpackage plugins
+ */
+
+/**
+ * Smarty link usernames plugin
  *
- *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
+ * Type:     modifier<br>
+ * Name:     link_usernames_to_twitter<br>
+ * Date:     July 4, 2009
+ * Purpose:  links a Twitter username to their user page
+ * Input:    status update text
+ * Example:  {$status_html|link_usernames_to_twitter}
+ * @TODO Find a more elegant way to do this that's totally regex-based, not loving this explode/implode approach
  * @license http://www.gnu.org/licenses/gpl.html
  * @copyright 2009-2012 Gina Trapani
+ * @author   Gina Trapani
+ * @version 1.0
+ * @param string
+ * @return string
  */
-require_once 'init.php';
-
-$controller = new DashboardController();
-echo $controller->go();
+function smarty_modifier_link_usernames_to_twitter($text) {
+    return preg_replace('/(^|[^a-z0-9_])@([a-z0-9_]+)/i',
+    '$1<a href="https://twitter.com/intent/user?screen_name=$2">@$2</a>', $text);
+}

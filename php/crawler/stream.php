@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ThinkUp/webapp/index.php
+ * ThinkUp/webapp/crawler/stream.php
  *
- * Copyright (c) 2009-2012 Gina Trapani
+ * Copyright (c) 2011-2012 Amy Unruh
  *
  * LICENSE:
  *
@@ -20,12 +20,11 @@
  * You should have received a copy of the GNU General Public License along with ThinkUp.  If not, see
  * <http://www.gnu.org/licenses/>.
  *
- *
- * @author Gina Trapani <ginatrapani[at]gmail[dot]com>
- * @license http://www.gnu.org/licenses/gpl.html
- * @copyright 2009-2012 Gina Trapani
+ * @author Amy Unruh
  */
+chdir("..");
 require_once 'init.php';
+require_once THINKUP_WEBAPP_PATH.'plugins/twitterrealtime/model/class.ConsumerUserStream.php';
 
-$controller = new DashboardController();
+$controller = new StreamerAuthController($argc, $argv);
 echo $controller->go();
